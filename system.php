@@ -21,6 +21,10 @@ $sql = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0){
+    session_start();
+	$_SESSION["login"] = true;
+	$_SESSION["username"] = $_POST["username"];
+
     echo "Hello " . $username . "!<br>";
     echo '<a href="/MusicWebsite/music.php">View Music</a><br>';
     echo '<a href="/MusicWebsite/profile.php">View Profile</a>';
