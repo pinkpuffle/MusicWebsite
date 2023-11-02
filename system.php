@@ -27,6 +27,8 @@ else{
     echo "Incorrect login";
 }
 
+$conn->close();
+
 ?>
 </body>
 </html>
