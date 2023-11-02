@@ -28,14 +28,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $sql = "INSERT INTO users (username, password) VALUES ('" . $username . "', '" . $password . "')";
 
-    if($conn->query($sql) === TRUE){
-        header("Location: system.php");
-    }
-    else{
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    
+    //check if user already exists
+    $sql = "SELECT * FROM users WHERE username = '" . $username . "'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) == 0){
+        //add user
+        $sql = "INSERT INTO users (username, password) VALUES ('" . $username . "', '" . $password . "')";
+
+        if($conn->query($sql) === TRUE){
+            session_start();
+		    $_SESSION["login"] = true;
+		    $_SESSION["username"] = $_POST["username"];
+            header("Location: system.php");
+        }else{
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }else{
+        echo "Username already taken";
     }
 
     $conn->close();
