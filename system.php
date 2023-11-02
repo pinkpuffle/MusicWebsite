@@ -3,7 +3,7 @@
 
 <?php
 //connection
-$servername = "localhost";
+$serverName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
 $dbName = "musicwebsite";
