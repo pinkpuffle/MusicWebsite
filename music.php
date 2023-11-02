@@ -42,6 +42,7 @@ echo "<table>
 <td>Log</td>
 </tr>";
 
+//run through each row
 while($row = $result->fetch_assoc()){
     echo "<tr>
     <td>" . $row["album"] . "</td>
