@@ -47,7 +47,11 @@ while($row = $result->fetch_assoc()){
     <td>" . $row["album"] . "</td>
     <td>" . $row["artist"] . "</td>
     <td>" . $row["runtime"] . "</td>
-    <td>button</td>
+    <td>
+        <form action='/MusicWebsite/logMusic.php' method='post'>
+            <button name='log' value='" . $row["id"] . "'>Log</button>
+        </form>
+    </td>
     </tr>";
 }
 
