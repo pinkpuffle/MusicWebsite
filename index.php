@@ -17,4 +17,8 @@
 </form>
 
 </body>
+
+<footer>
+	<a href="/MusicWebsite/register.php">Register new account</a>
+</footer>
 </html>
