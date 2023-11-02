@@ -24,6 +24,15 @@ echo "<table>
 <td>Log</td>
 </tr>";
 
+while($row = $result->fetch_assoc()){
+    echo "<tr>
+    <td>" . $row["album"] . "</td>
+    <td>" . $row["artist"] . "</td>
+    <td>" . $row["runtime"] . "</td>
+    <td>button</td>
+    </tr>";
+}
+
 
 
 $conn->close();
