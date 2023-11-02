@@ -13,7 +13,13 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
-
+echo "<table>
+<tr>
+<td>Album</td>
+<td>Artist</td>
+<td>Runtime</td>
+<td>Log</td>
+</tr>";
 
 
 
