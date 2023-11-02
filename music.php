@@ -12,6 +12,9 @@ $conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
+//sql
+$sql = "SELECT * FROM albums";
+$result = mysqli_query($conn, $sql);
 
 echo "<table>
 <tr>
