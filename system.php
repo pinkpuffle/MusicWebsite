@@ -14,7 +14,18 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 
+//login
+$username = $_POST["username"];
+$password = $_POST["password"];
+$sql = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'";
+$result = mysqli_query($conn, $sql);
 
+if(mysqli_num_rows($result) > 0){
+    echo "Hello " . $username . "!";
+}
+else{
+    echo "Incorrect login";
+}
 
 ?>
 </body>
