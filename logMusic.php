@@ -53,8 +53,6 @@ if(mysqli_num_rows($result) > 0){
     <label for="private" style="font-family:'Courier New'">Private review: </label>
     <input type="checkbox" id="private" name="private" value="0"><br><br>
 
-    <input type="text" id="myusername" name="myusername"><br>
-
 
     <button class="button1">Submit</button>
 </form>
@@ -62,12 +60,9 @@ if(mysqli_num_rows($result) > 0){
 <?php 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-
-
-    $myusername = $_POST["myusername"];
-    //$rating = $_POST["ratingValue"];
-	//$review = $_POST["review"];
-    //$private = $_POST["private"];
+    $rating = $_POST["ratingValue"];
+	$review = $_POST["review"];
+    $private = $_POST["private"];
 
     //echo "<br>" . $rating . "<br>";
     //echo $review . "<br>";
