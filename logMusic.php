@@ -37,7 +37,7 @@ if(mysqli_num_rows($result) > 0){
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
 <label for="rating" style="font-family:'Courier New'">Rating:</label><br>
-<input type="radio" id="1star" name="ratingValue" value="1">
+<input type="radio" id="1star" name="ratingValue" value="1" required>
 <input type="radio" id="2star" name="ratingValue" value="2">
 <input type="radio" id="3star" name="ratingValue" value="3">
 <input type="radio" id="4star" name="ratingValue" value="4">
@@ -46,6 +46,7 @@ if(mysqli_num_rows($result) > 0){
 
 <textarea placeholder="Enter review" name="review" rows="5" cols="40"><?php echo $review ?></textarea><br><br>
 <button class="button1">Submit</button>
+
 </form>
 
 
