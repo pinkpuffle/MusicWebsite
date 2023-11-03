@@ -36,6 +36,9 @@ if(mysqli_num_rows($result) > 0){
 
 <!-- review form -->
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+
+<!-- use radios for star rating -->
+
 <textarea placeholder="Enter review" name="review" rows="5" cols="40"><?php echo $review ?></textarea><br><br>
 <button class="button1">Submit</button>
 </form>
