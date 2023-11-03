@@ -4,7 +4,7 @@
 
 //initalise variables
 $albumID = $_POST["log"];
-$review = "bad";
+$review = "";
 $rating = 0;
 session_start();
 $username = $_SESSION["username"];
