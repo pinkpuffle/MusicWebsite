@@ -4,7 +4,7 @@
 
 //initalise variables
 $albumID = $_POST["log"];
-$review = "";
+//$review = "";
 $private = 1;
 session_start();
 $username = $_SESSION["username"];
@@ -32,26 +32,49 @@ if(mysqli_num_rows($result) > 0){
     }
 }
 
+
+
+
+
 ?>
 
 <!-- review form -->
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-<label for="rating" style="font-family:'Courier New'">Rating:</label><br>
-<input type="radio" id="1star" name="ratingValue" value="1" required>
-<input type="radio" id="2star" name="ratingValue" value="2">
-<input type="radio" id="3star" name="ratingValue" value="3">
-<input type="radio" id="4star" name="ratingValue" value="4">
-<input type="radio" id="5star" name="ratingValue" value="5"><br>
+    <label for="rating" style="font-family:'Courier New'">Rating:</label><br>
+    <input type="radio" id="1star" name="ratingValue" value="1" required>
+    <input type="radio" id="2star" name="ratingValue" value="2">
+    <input type="radio" id="3star" name="ratingValue" value="3">
+    <input type="radio" id="4star" name="ratingValue" value="4">
+    <input type="radio" id="5star" name="ratingValue" value="5"><br>
 
-<textarea placeholder="Enter review" name="review" rows="5" cols="40"><?php echo $review ?></textarea><br>
+    <textarea placeholder="Enter review" name="review" rows="5" cols="40"><?php echo $review ?></textarea><br>
 
-<label for="private" style="font-family:'Courier New'">Private review: </label>
-<input type="checkbox" id="private" name="private" value="0"><br><br>
+    <label for="private" style="font-family:'Courier New'">Private review: </label>
+    <input type="checkbox" id="private" name="private" value="0"><br><br>
 
-<button class="button1">Submit</button>
+    <input type="text" id="myusername" name="myusername"><br>
 
+
+    <button class="button1">Submit</button>
 </form>
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+
+
+    $myusername = $_POST["myusername"];
+    //$rating = $_POST["ratingValue"];
+	//$review = $_POST["review"];
+    //$private = $_POST["private"];
+
+    //echo "<br>" . $rating . "<br>";
+    //echo $review . "<br>";
+    //echo $private;
+
+}
+?>
 
 
 
