@@ -2,6 +2,14 @@
 <body>
 
 <?php
+//initialise
+$ratingValue = $_POST["ratingValue"];
+$review = $_POST["review"];
+$private = $_POST["private"];
+$albumID = $_POST["albumID"];
+
+
+
 //connection
 $serverName = "localhost";
 $dbUsername = "root";
