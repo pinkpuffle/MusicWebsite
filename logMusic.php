@@ -49,7 +49,7 @@ if(mysqli_num_rows($result) > 0){
     <input type="radio" id="4star" name="ratingValue" value="4">
     <input type="radio" id="5star" name="ratingValue" value="5"><br>
 
-    <textarea placeholder="Enter review" name="review" rows="5" cols="40"><?php echo $review ?></textarea><br>
+    <textarea placeholder="Enter review" name="review" rows="5" cols="40"></textarea><br>
 
     <label for="private" style="font-family:'Courier New'">Private review: </label>
     <input type="checkbox" id="private" name="private" value="0"><br><br>
