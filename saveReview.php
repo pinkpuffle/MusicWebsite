@@ -8,6 +8,8 @@ $review = $_POST["review"];
 $private = $_POST["private"];
 $albumID = $_POST["albumID"];
 
+echo $ratingValue . "<br>" . $review . "<br>" . $private . "<br>" .$albumID;
+
 
 
 //connection

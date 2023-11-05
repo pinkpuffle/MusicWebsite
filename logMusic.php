@@ -54,7 +54,7 @@ if(mysqli_num_rows($result) > 0){
     <label for="private" style="font-family:'Courier New'">Private review: </label>
     <input type="checkbox" id="private" name="private" value="0"><br><br>
 
-    <input type ="text" name="<?php echo $albumID; ?>"/>
+    <input type ="hidden" name=albumID value="<?php echo $albumID; ?>"/>
 
 
     <button class="button1">Submit</button>
