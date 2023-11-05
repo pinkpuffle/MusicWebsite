@@ -31,9 +31,12 @@ $result = mysqli_query($conn, $sql);
 
 //if review already exist
 if(mysqli_num_rows($result) > 0){
-    
+    $sql = "UPDATE reviews
+    SET review = '" . $review . "', rating = '" . $ratingValue . "', private = '" . $private . "'
+    WHERE username = '" . $username . "', albumID = '" . $albumID . "'";
 }else{ //if not
-
+    $sql = "INSERT INTO reviews (username, albumID, review, rating, private)
+    VALUES (" . $username . ", " . $albumID . ", " . $review . ", " . $ratingValue . ", " . $private . ")";
 }
 
 
