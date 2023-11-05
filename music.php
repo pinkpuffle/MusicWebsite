@@ -57,8 +57,6 @@ while($row = $result->fetch_assoc()){
     </tr>";
 }
 
-
-
 $conn->close();
 ?>
 

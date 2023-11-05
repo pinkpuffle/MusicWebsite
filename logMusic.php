@@ -28,9 +28,5 @@ $album = $_POST["album"];
     <button class="button1">Submit</button>
 </form>
 
-
-
-
-
 </body>
 </html>
