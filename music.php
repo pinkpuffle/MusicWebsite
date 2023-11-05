@@ -50,8 +50,8 @@ while($row = $result->fetch_assoc()){
     <td>" . $row["runtime"] . "</td>
     <td>
         <form action='/MusicWebsite/logMusic.php' method='post'>
-            <button name='log' value='" . $row["albumID"] . "'>Log</button>
             <input type ='hidden' name='album' value='" . $row["album"] . "'/>
+            <button name='log' value='" . $row["albumID"] . "'>Log</button>
         </form>
     </td>
     </tr>";
