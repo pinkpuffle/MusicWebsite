@@ -21,14 +21,15 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 //sql
-$sql = "SELECT review, rating FROM reviews WHERE username = '" . $username . "' AND albumID = '" . $albumID . "'";
+$sql = "SELECT reviewID FROM reviews WHERE username = '" . $username . "' AND albumID = '" . $albumID . "'";
 $result = mysqli_query($conn, $sql);
 
 //if review already exist, change variables to result
 if(mysqli_num_rows($result) > 0){
     while ($row = $result->fetch_assoc()) {
-        $review = $row['review'];
-        $rating = $row['rating'];
+        //$review = $row['review'];
+        //$rating = $row['rating'];
+        
     }
 }
 
@@ -39,7 +40,7 @@ if(mysqli_num_rows($result) > 0){
 ?>
 
 <!-- review form -->
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+<form action="/MusicWebsite/saveReview.php" method="post">
 
     <label for="rating" style="font-family:'Courier New'">Rating:</label><br>
     <input type="radio" id="1star" name="ratingValue" value="1" required>
@@ -53,23 +54,12 @@ if(mysqli_num_rows($result) > 0){
     <label for="private" style="font-family:'Courier New'">Private review: </label>
     <input type="checkbox" id="private" name="private" value="0"><br><br>
 
+    <input type ="text" name="<?php echo $albumID; ?>"/>
+
 
     <button class="button1">Submit</button>
 </form>
 
-<?php 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    $rating = $_POST["ratingValue"];
-	$review = $_POST["review"];
-    $private = $_POST["private"];
-
-    //echo "<br>" . $rating . "<br>";
-    //echo $review . "<br>";
-    //echo $private;
-
-}
-?>
 
 
 
