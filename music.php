@@ -51,6 +51,7 @@ while($row = $result->fetch_assoc()){
     <td>
         <form action='/MusicWebsite/logMusic.php' method='post'>
             <button name='log' value='" . $row["albumID"] . "'>Log</button>
+            <input type ='hidden' name='album' value='" . $row["album"] . "'/>
         </form>
     </td>
     </tr>";
