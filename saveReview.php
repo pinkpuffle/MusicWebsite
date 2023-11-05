@@ -7,6 +7,8 @@ $ratingValue = $_POST["ratingValue"];
 $review = $_POST["review"];
 $private = $_POST["private"];
 $albumID = $_POST["albumID"];
+session_start();
+$username = $_SESSION["username"];
 
 echo $ratingValue . "<br>" . $review . "<br>" . $private . "<br>" .$albumID;
 
