@@ -28,14 +28,18 @@ $result = mysqli_query($conn, $sql);
 echo "<h1>Profile</h1><br>
 <h2>Hello " . $username . "</h2>";
 
-echo "<table>";
-while($row = $result->fetch_assoc()){
-    echo "<tr>
-    <td>" .
-    $row["album"] . " - " . $row["artist"] . "<br>" .
-    $username . "<br>" .
-    $row["rating"] . "/5<br>" .
-    $row["review"];
+if(mysqli_num_rows($result) > 0){ //if reviews exist
+    echo "<table>";
+    while($row = $result->fetch_assoc()){
+        echo "<tr>
+        <td>" .
+        $row["album"] . " - " . $row["artist"] . "<br>" .
+        $username . "<br>" .
+        $row["rating"] . "/5<br>" .
+        $row["review"];
+    }
+}else{
+    echo "No reviews yet";
 }
 ?>
 
