@@ -45,7 +45,7 @@ if($conn->query($sql) === TRUE){
     " . $ratingValue . "/5<br>
     " . $review . "<br>";
 
-\
+
 }else{
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
