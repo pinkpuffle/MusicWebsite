@@ -37,7 +37,8 @@ INNER JOIN albums ON reviews.albumID = albums.albumID
 WHERE username = '" . $username . "'";
 $result = mysqli_query($conn, $sql);
 
-echo "<h2>Hello " . $username . "</h2>";
+echo "<h1>Profile</h1><br>
+<h2>Hello " . $username . "</h2>";
 
 echo "<table>";
 while($row = $result->fetch_assoc()){
