@@ -10,7 +10,7 @@ $albumID = $_POST["albumID"];
 session_start();
 $username = $_SESSION["username"];
 
-echo $ratingValue . "<br>" . $review . "<br>" . $private . "<br>" .$albumID;
+echo $ratingValue . "<br>" . $review . "<br>" . $private . "<br>" .$albumID . "<br>";
 
 
 
@@ -39,6 +39,16 @@ if(mysqli_num_rows($result) > 0){
     VALUES (" . $username . ", " . $albumID . ", " . $review . ", " . $ratingValue . ", " . $private . ")";
 }
 
+if($conn->query($sql) === TRUE){
+
+    echo "<h2>Review saved!</h2><br>
+    " . $ratingValue . "/5<br>
+    " . $review . "<br>";
+
+\
+}else{
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 
 ?>
