@@ -1,18 +1,20 @@
 <html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <!-- submit form to self -->
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-<p style="font-family:verdana">Please register.</p>
-	<label for="username" style="font-family:'Courier New'">Username:</label><br>
+<p>Please register.</p>
+	<label for="username">Username:</label><br>
 	<input type="text" id="username" name="username"><br>
-	<label for="password" style="font-family:'Courier New'">Password:</label><br>
+	<label for="password">Password:</label><br>
 	<input type="text" id="password" name="password"><br><br>
 	<button class="button1">Submit</button>
 </form>
 
 <?php
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //connection
     $serverName = "localhost";
@@ -51,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $conn->close();
 }
-
 ?>
 
 </body>

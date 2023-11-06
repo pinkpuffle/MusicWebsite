@@ -1,17 +1,17 @@
 <html>
 <body style="background-color:lavender;">
 
-<h2 style="font-family:verdana">Welcome</h2>
+<h2>Welcome</h2>
 
 <style>
 	.button1 {boarder-radius: 12px;}
 </style>
 
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
-	<p style="font-family:verdana">Please login.</p>
-	<label for="username" style="font-family:'Courier New'">Username:</label><br>
+	<p>Please login.</p>
+	<label for="username">Username:</label><br>
 	<input type="text" id="username" name="username"><br>
-	<label for="password" style="font-family:'Courier New'">Password:</label><br>
+	<label for="password">Password:</label><br>
 	<input type="text" id="password" name="password"><br><br>
 	<button class="button1">Submit</button>
 </form>

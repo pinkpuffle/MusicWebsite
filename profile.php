@@ -1,25 +1,13 @@
 <html>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 </body>
 <?php
 session_start();
 $username = $_SESSION["username"];
- //connection
+//connection
 $serverName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
