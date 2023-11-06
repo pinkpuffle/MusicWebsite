@@ -1,4 +1,20 @@
 <html>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </body>
 <?php
 session_start();
@@ -15,15 +31,23 @@ if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
 //sql
-$sql = "SELECT reviews.review, reviews.rating, albums.album
+$sql = "SELECT reviews.review, reviews.rating, albums.album, albums.artist
 FROM reviews 
 INNER JOIN albums ON reviews.albumID = albums.albumID
 WHERE username = '" . $username . "'";
 $result = mysqli_query($conn, $sql);
 
-
-
 echo "<h2>Hello " . $username . "</h2>";
+
+echo "<table>";
+while($row = $result->fetch_assoc()){
+    echo "<tr>
+    <td>" .
+    $row["album"] . " - " . $row["artist"] . "<br>" .
+    $username . "<br>" .
+    $row["rating"] . "/5<br>" .
+    $row["review"];
+}
 ?>
 
 </body>
