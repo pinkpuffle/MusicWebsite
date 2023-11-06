@@ -10,10 +10,6 @@ $albumID = $_POST["albumID"];
 session_start();
 $username = $_SESSION["username"];
 
-echo $ratingValue . "<br>" . $review . "<br>" . $private . "<br>" .$albumID . "<br>";
-
-
-
 //connection
 $serverName = "localhost";
 $dbUsername = "root";
@@ -45,20 +41,14 @@ if($conn->query($sql) === TRUE){
     " . $ratingValue . "/5<br>
     " . $review . "<br>";
 
-
 }else{
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
-
 ?>
-
-
-
-
-
 </body>
 
-
+<footer>
+	<a href="/MusicWebsite/system.php">Return to menu</a>
+</footer>
 
 </html>
