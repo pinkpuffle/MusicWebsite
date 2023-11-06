@@ -36,7 +36,7 @@ if(mysqli_num_rows($result) > 0){
     WHERE username = '" . $username . "', albumID = '" . $albumID . "'";
 }else{ //if not
     $sql = "INSERT INTO reviews (username, albumID, review, rating, private)
-    VALUES (" . $username . ", " . $albumID . ", " . $review . ", " . $ratingValue . ", " . $private . ")";
+    VALUES ('" . $username . "', '" . $albumID . "', '" . $review . "', '" . $ratingValue . "', '" . $private . "')";
 }
 
 if($conn->query($sql) === TRUE){
