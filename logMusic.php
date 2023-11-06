@@ -20,9 +20,10 @@ $album = $_POST["album"];
     <textarea placeholder="Enter review" name="review" rows="5" cols="40"></textarea><br>
 
     <label for="private" style="font-family:'Courier New'">Private review: </label>
-    <input type="checkbox" id="private" name="private" value="0"><br><br>
+    <input type="hidden" name="private" value="1">
+    <input type="checkbox" id="private" name="private" value="1"><br><br>
 
-    <input type ="hidden" name="albumID" value="<?php echo $albumID; ?>"/>
+    <input type ="hidden" name="albumID" value="<?php echo $albumID; ?>">
 
 
     <button class="button1">Submit</button>
