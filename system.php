@@ -36,7 +36,8 @@ if ($conn->connect_error) {
 //sql
 $sql = "SELECT reviews.review, reviews.rating, reviews.username, albums.album, albums.artist
 FROM reviews 
-INNER JOIN albums ON reviews.albumID = albums.albumID";
+INNER JOIN albums ON reviews.albumID = albums.albumID
+WHERE reviews.private = 0";
 $result = mysqli_query($conn, $sql);
 
 echo "<table>";
