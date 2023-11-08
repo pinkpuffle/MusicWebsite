@@ -7,11 +7,11 @@
 <?php
 //initialise
 $ratingValue = $_POST["ratingValue"];
-$review = $_POST["review"];
+$review =  htmlspecialchars($_POST["review"]);
 $private = $_POST["private"];
 $albumID = $_POST["albumID"];
 session_start();
-$username = $_SESSION["username"];
+$username =  htmlspecialchars($_SESSION["username"]);
 
 //connection
 $serverName = "localhost";
