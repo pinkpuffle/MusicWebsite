@@ -33,8 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	//login
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-	$sql = "SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'";
-	$result = mysqli_query($conn, $sql);
+
+	$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+	$stmt->bind_param("ss",$username,$password);
+	$stmt->execute();
+	$result = $stmt->get_result();
 
 	if(mysqli_num_rows($result) > 0){
 		session_start();
