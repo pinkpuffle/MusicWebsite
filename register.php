@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    //check if user already exists
-    $sql = "SELECT * FROM users WHERE username = '" . $username . "'";
-    $result = mysqli_query($conn, $sql);
+    //hash and salt
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+    //check if user already exists
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
 	$stmt->bind_param("s",$username);
 	$stmt->execute();
@@ -38,9 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(mysqli_num_rows($result) == 0){
         //add user
-        $sql = "INSERT INTO users (username, password) VALUES ('" . $username . "', '" . $password . "')";
         $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES ( ?, ?)");
-	    $stmt->bind_param("ss",$username,$password);
+	    $stmt->bind_param("ss",$username,$hashedPassword);
 
         if($stmt->execute() === TRUE){
             session_start();

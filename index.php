@@ -30,12 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 
-	$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-	$stmt->bind_param("ss",$username,$password);
+	$stmt = $conn->prepare("SELECT password FROM users WHERE username = ?");
+	$stmt->bind_param("s",$username);
 	$stmt->execute();
 	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
 
-	if(mysqli_num_rows($result) > 0){
+	//verify hash and salt
+	if(password_verify($password,$row["password"]) == 1){
 		session_start();
 		$_SESSION["login"] = true;
 		$_SESSION["username"] = $_POST["username"];
