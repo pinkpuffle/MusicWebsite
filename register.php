@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES ( ?, ?)");
 	    $stmt->bind_param("ss",$username,$password);
 
-        if($stmt->execute === TRUE){
+        if($stmt->execute() === TRUE){
             session_start();
 		    $_SESSION["login"] = true;
 		    $_SESSION["username"] = $_POST["username"];
