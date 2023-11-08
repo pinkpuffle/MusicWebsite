@@ -32,7 +32,6 @@ while($row = $result->fetch_assoc()){
     $row["rating"] . "/5<br>" .
     $row["review"];
 }
-
 ?>
 
 </body>
