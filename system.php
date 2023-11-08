@@ -9,11 +9,7 @@
 <a href="/MusicWebsite/profile.php">View Profile</a><br><br>
 
 <?php
-//connection
-$serverName = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "musicwebsite";
+include 'config.php';
 // Create connection
 $conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 // Check connection

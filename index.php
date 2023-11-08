@@ -18,11 +18,7 @@
 
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	//connection
-	$serverName = "localhost";
-	$dbUsername = "root";
-	$dbPassword = "";
-	$dbName = "musicwebsite";
+	include 'config.php';
 	// Create connection
 	$conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 	// Check connection

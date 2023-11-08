@@ -13,11 +13,7 @@ $albumID = $_POST["albumID"];
 session_start();
 $username =  htmlspecialchars($_SESSION["username"]);
 
-//connection
-$serverName = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "musicwebsite";
+include 'config.php';
 // Create connection
 $conn = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 // Check connection
