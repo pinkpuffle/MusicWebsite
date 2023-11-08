@@ -35,11 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "SELECT * FROM users WHERE username = '" . $username . "'";
     $result = mysqli_query($conn, $sql);
 
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+	$stmt->bind_param("s",$username);
+	$stmt->execute();
+	$result = $stmt->get_result();
+
     if(mysqli_num_rows($result) == 0){
         //add user
         $sql = "INSERT INTO users (username, password) VALUES ('" . $username . "', '" . $password . "')";
+        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES ( ?, ?)");
+	    $stmt->bind_param("ss",$username,$password);
 
-        if($conn->query($sql) === TRUE){
+        if($stmt->execute === TRUE){
             session_start();
 		    $_SESSION["login"] = true;
 		    $_SESSION["username"] = $_POST["username"];
