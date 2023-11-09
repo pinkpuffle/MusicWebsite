@@ -1,5 +1,5 @@
 # MusicWebsite
-The secured branch of a website for storing music reviews.
+The secured branch of a website for reviewing music.
 
 Mitigation for
 - SQL injection
